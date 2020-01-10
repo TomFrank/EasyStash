@@ -21,7 +21,7 @@ public extension Storage {
         })
     }
 
-    func load<T: Codable>(forKey key: String, as: T.Type) throws -> T {
+    func load<T: Codable>(forKey key: String, as: T.Type = T.self) throws -> T {
         func loadFromDisk<T: Codable>(forKey key: String, as: T.Type) throws -> T {
             let data = try Data(contentsOf: fileUrl(forKey: key))
             let decoder = options.decoder
